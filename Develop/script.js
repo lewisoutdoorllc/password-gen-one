@@ -1,18 +1,20 @@
-
+// button fuction to prompt generate new password upon click //
 var generateButton = document.getElementById('generateNewPassword');
 generateButton.addEventListener('click', function() {
   generateNewPassword();
 });
-
+// first prompt to get input for password lenght and limits are set to no less than 8 and no more than 128 //
 function generateNewPassword() {
   var length = Number(prompt("How many characters would you like your password to be?"));
 while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("Length must be 8-128 characters. How many characters would you like your password to be?"));
 
+// confirm prompts 
 var uppers = confirm("Would you like to use uppercase letters?");
 var lowers = confirm("Would you like to use lowercase letters?");
 var numbers = confirm("Would you like to use numbers?");
 var symbols = confirm("Would you like to use special characters?");
 
+// 
 while (!uppers && !lowers && !numbers && !symbols) {
   alert("You must select at least one character type!");
   uppers = confirm("Would you like to use uppercase letters?");
