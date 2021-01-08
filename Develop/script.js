@@ -1,7 +1,19 @@
 
 function generateNewPassword() {
   var length = Number(prompt("How many characters would you like your password to be?"));
-
+  var allowed = {};
+  if (uppers) password += rando(allowed.uppers = "QWERTYUIOPASDFGHJKLZXCVBNM");
+  if (lowers) password += rando(allowed.lowers = "qwertyuiopasdfghjklzxcvbnm");
+  if (numbers) password += rando(allowed.numbers = "1234567890");
+  if (symbols) password += rando(allowed.symbols = "!@#$%^&*(){}[]=<>/,.");
+  
+  for (var i = password.length; i < length; i++) password += rando(rando(allowed).value);
+  
+  document.getElementById("password").value = randoSequence(password).join("");
+  }
+  
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
   while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("Length must be 8-128 characters. How many characters would you like your password to be?"));
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -19,16 +31,4 @@ function generateNewPassword() {
   }
   passwordText.value = password;
 
-}var allowed = {};
-if (uppers) password += rando(allowed.uppers = "QWERTYUIOPASDFGHJKLZXCVBNM");
-if (lowers) password += rando(allowed.lowers = "qwertyuiopasdfghjklzxcvbnm");
-if (numbers) password += rando(allowed.numbers = "1234567890");
-if (symbols) password += rando(allowed.symbols = "!@#$%^&*(){}[]=<>/,.");
-
-for (var i = password.length; i < length; i++) password += rando(rando(allowed).value);
-
-document.getElementById("password").value = randoSequence(password).join("");
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
