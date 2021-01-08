@@ -87,6 +87,12 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  
+}
+
+.btn:active, .btn:focus {
+  outline: 0;
+  border: none;
 }
 
 button[disabled] {
